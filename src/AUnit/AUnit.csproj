@@ -1,14 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <ItemGroup>
-    <ProjectReference Include="..\AUnit.Adapter\AUnit.Adapter.csproj" />
-    <ProjectReference Include="..\AUnit.Core\AUnit.Core.csproj" />
-  </ItemGroup>
-
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PackageId>AUnit</PackageId>
+    <Version>0.0.1</Version>
+    <Authors>AshleyTarring</Authors>
+    <!-- <Company>YourCompany</Company> -->
+    <Description>A C# Unit Testing Framework, By Testers for Testers.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <!-- <PackageProjectUrl>https://yourprojecturl.com</PackageProjectUrl> -->
+    <RepositoryUrl>https://github.com/ashleytarring/AUnit</RepositoryUrl>
+    <PackageTags>.NET 8.0</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AUnit.Adapter\AUnit.Adapter.csproj" />
+    <ProjectReference Include="..\AUnit.Core\AUnit.Core.csproj" />
+  </ItemGroup>
 
 </Project>
