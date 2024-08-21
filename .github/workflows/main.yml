@@ -19,10 +19,10 @@ jobs:
         dotnet-version: '8.0.x'
 
     - name: Restore dependencies
-      run: dotnet restore AUnit.sln
+      run: dotnet restore
 
     - name: Build
-      run: dotnet build AUnit.sln -c Release
+      run: dotnet build -c Release
 
     - name: Publish NuGet Package
       uses: NuGet/setup-nuget@v1
