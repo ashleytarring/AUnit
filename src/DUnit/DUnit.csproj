@@ -21,4 +21,8 @@
     <ProjectReference Include="..\DUnit.Core\DUnit.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
+
 </Project>
