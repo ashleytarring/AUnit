@@ -2,9 +2,9 @@
 using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.Adapter;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging;
-using AUnit.Core;
+using DUnit.Core;
 
-namespace AUnit.Adapter;
+namespace DUnit.Adapter;
 public class TestDiscovery : ITestDiscoverer
 {
   public void DiscoverTests(IEnumerable<string> sources, IDiscoveryContext discoveryContext, IMessageLogger logger, ITestCaseDiscoverySink discoverySink)

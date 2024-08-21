@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AUnit.Core\AUnit.Core.csproj" />
+    <ProjectReference Include="..\DUnit.Core\DUnit.Core.csproj" />
   </ItemGroup>
 
 </Project>

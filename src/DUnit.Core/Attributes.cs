@@ -1,4 +1,4 @@
-﻿namespace AUnit.Core;
+﻿namespace DUnit.Core;
 
 [AttributeUsage(AttributeTargets.Class)]
 public class TestFixtureAttribute : Attribute

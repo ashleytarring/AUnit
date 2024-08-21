@@ -1,8 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.Adapter;
-using AUnit.Core;
+using DUnit.Core;
 
-namespace AUnit.Adapter
+namespace DUnit.Adapter
 {
   [ExtensionUri(ExecutorUriString)]
   public class TestExecution : ITestExecutor
