@@ -1,0 +1,39 @@
+name: Build and Publish NuGet Package
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build
+      run: dotnet build -c Release
+
+    - name: Publish NuGet Package
+      uses: NuGet/setup-nuget@v1
+      with:
+        nuget-version: '6.0.x'
+
+    - name: Push NuGet Package
+      env:
+        NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+      run: |
+        # Push all packages from the output directory (e.g., bin/Release)
+        for package in $(find ./bin/Release -name "*.nupkg"); do
+          dotnet nuget push "$package" -k $NUGET_API_KEY -s https://api.nuget.org/v3/index.json
+        done
