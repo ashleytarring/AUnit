@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>DUnit</PackageId>
-    <Version>0.0.1</Version>
+    <Version>0.0.2</Version>
     <Authors>AshleyTarring</Authors>
     <!-- <Company>YourCompany</Company> -->
     <Description>A C# Unit Testing Framework, By Testers for Testers.</Description>
