@@ -20,6 +20,7 @@ strategies:
 - VersionInBranchName
 branches:
   main:
+    mode: ContinuousDelivery
     label: ''
     increment: Patch
     prevent-increment:
@@ -30,29 +31,11 @@ branches:
     source-branches: []
     is-source-branch-for: []
     tracks-release-branches: false
-    is-release-branch: false
+    is-release-branch: true
     is-main-branch: true
     pre-release-weight: 55000
-  release:
-    mode: ManualDeployment
-    label: beta
-    increment: Patch
-    prevent-increment:
-      of-merged-branch: true
-      when-branch-merged: false
-      when-current-commit-tagged: false
-    track-merge-target: false
-    track-merge-message: true
-    regex: ^releases?[/-](?<BranchName>.+)
-    source-branches:
-    - main
-    is-source-branch-for: []
-    tracks-release-branches: false
-    is-release-branch: true
-    is-main-branch: false
-    pre-release-weight: 30000
   feature:
-    mode: ManualDeployment
+    mode: ContinuousDelivery
     label: '{BranchName}'
     increment: Inherit
     prevent-increment:
@@ -61,7 +44,6 @@ branches:
     regex: ^features?[/-](?<BranchName>.+)
     source-branches:
     - main
-    - release
     is-source-branch-for: []
     is-main-branch: false
     pre-release-weight: 30000
@@ -77,25 +59,9 @@ branches:
     regex: ^(pull|pull\-requests|pr)[/-]
     source-branches:
     - main
-    - release
     - feature
     is-source-branch-for: []
     pre-release-weight: 30000
-  unknown:
-    mode: ManualDeployment
-    label: '{BranchName}'
-    increment: Inherit
-    prevent-increment:
-      when-current-commit-tagged: false
-    track-merge-message: false
-    regex: (?<BranchName>.+)
-    source-branches:
-    - main
-    - release
-    - feature
-    - pull-request
-    is-source-branch-for: []
-    is-main-branch: false
 ignore:
   sha: []
 mode: ContinuousDelivery
