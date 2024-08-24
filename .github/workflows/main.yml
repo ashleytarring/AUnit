@@ -57,3 +57,4 @@ jobs:
         for package in $(find . -name "*.nupkg"); do
           dotnet nuget push "$package" -k $NUGET_API_KEY -s https://api.nuget.org/v3/index.json
         done
+ 
