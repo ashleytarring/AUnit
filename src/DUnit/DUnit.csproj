@@ -5,6 +5,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>DUnit</PackageId>
+    <IncludeBuildOutput>true</IncludeBuildOutput>
+    <IncludeContentInPack>true</IncludeContentInPack>
     <Version>0.0.3</Version>
     <Authors>AshleyTarring</Authors>
     <!-- <Company>YourCompany</Company> -->
@@ -20,6 +22,17 @@
   <ItemGroup>
     <ProjectReference Include="..\DUnit.Adapter\DUnit.Adapter.csproj" />
     <ProjectReference Include="..\DUnit.Core\DUnit.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="..\DUnit.Core\bin\$(Configuration)\$(TargetFramework)\DUnit.Core.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\$(TargetFramework)\</PackagePath>
+    </None>
+    <None Update="..\DUnit.Adapter\bin\$(Configuration)\$(TargetFramework)\DUnit.Adapter.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\$(TargetFramework)\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
