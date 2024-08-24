@@ -23,7 +23,7 @@ jobs:
 
     - name: Use GitVersion to calculate version
       id: gitversion
-      run: gitversion /output json /showvariable SemVer
+      run: dotnet-gitversion /output json /showvariable SemVer
 
     - name: Restore dependencies
       run: dotnet restore
