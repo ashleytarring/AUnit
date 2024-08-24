@@ -1,0 +1,16 @@
+mode: ContinuousDeployment
+next-version: 0.0.3
+branches:
+  main:
+    increment: Minor
+    prevent-increment-of-merged-branch-version: true
+    track-merge-target: false
+    regex: ^main$
+    source-branches: []
+    is-mainline: true
+ignore:
+  sha: []
+merge-message-formats: {}
+commit-message-increments-major: []
+commit-message-increments-minor: [feat]
+commit-message-increments-patch: [fix, chore]

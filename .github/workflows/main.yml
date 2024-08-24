@@ -18,11 +18,18 @@ jobs:
       with:
         dotnet-version: '8.0.x'
 
+    - name: Install GitVersion
+      run: dotnet tool install -g GitVersion.Tool
+
+    - name: Use GitVersion to calculate version
+      id: gitversion
+      run: gitversion /output json /showvariable SemVer
+
     - name: Restore dependencies
       run: dotnet restore
 
     - name: Build
-      run: dotnet build -c Release
+      run: dotnet build  -c Release /p:Version=$(gitversion.SemVer)
 
     - name: Publish NuGet Package
       uses: NuGet/setup-nuget@v1
