@@ -25,7 +25,9 @@ jobs:
 
     - name: Use GitVersion to calculate version
       id: gitversion
-      run: dotnet-gitversion /output json /showvariable FullSemVer /updateprojectfiles
+      run: |
+        GIT_VERSION=$(dotnet-gitversion /output json /showvariable FullSemVer)
+        echo "GIT_VERSION=$GIT_VERSION" >> $GITHUB_ENV
 
     - name: Restore dependencies
       run: dotnet restore
@@ -36,7 +38,7 @@ jobs:
     - name: Create and push tag
       if: ${{ github.ref == 'refs/heads/main' }}
       env:
-        GIT_TAG: v${{ steps.gitversion.outputs.FullSemVer }}
+        GIT_TAG: v${{ env.GIT_VERSION }}
       run: |
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"
