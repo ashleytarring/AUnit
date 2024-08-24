@@ -1,10 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>DUnit</PackageId>
-    <Version>0.1.0</Version>
+    <Version>0.0.3</Version>
     <Authors>AshleyTarring</Authors>
     <Description>A C# Unit Testing Framework, By Testers for Testers.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -12,29 +13,20 @@
     <PackageTags>.NET 8.0</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>0.1.0.0</AssemblyVersion>
-    <FileVersion>0.1.0.0</FileVersion>
-    <InformationalVersion>0.1.0+Branch.main.Sha.7b9dd1e2ceff401412f0b09b496e3bd5a05abd90</InformationalVersion>
   </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\DUnit.Adapter\DUnit.Adapter.csproj" />
     <ProjectReference Include="..\DUnit.Core\DUnit.Core.csproj" />
   </ItemGroup>
+
   <ItemGroup>
-    <None Update="..\DUnit.Core\bin\$(Configuration)\$(TargetFramework)\DUnit.Core.dll">
-      <Pack>true</Pack>
-      <PackagePath>lib\$(TargetFramework)\</PackagePath>
-    </None>
-    <None Update="..\DUnit.Adapter\bin\$(Configuration)\$(TargetFramework)\DUnit.Adapter.dll">
-      <Pack>true</Pack>
-      <PackagePath>lib\$(TargetFramework)\</PackagePath>
-    </None>
+    <Content Include="..\DUnit.Core\bin\$(Configuration)\$(TargetFramework)\DUnit.Core.dll" Pack="true" PackagePath="lib\$(TargetFramework)\" />
+    <Content Include="..\DUnit.Adapter\bin\$(Configuration)\$(TargetFramework)\DUnit.Adapter.dll" Pack="true" PackagePath="lib\$(TargetFramework)\" />
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="DUnit.Core" Version="0.1.0" />
-    <PackageReference Include="DUnit.Adapter" Version="0.1.0" />
-  </ItemGroup>
+
   <ItemGroup>
     <None Include="..\..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
+
 </Project>
