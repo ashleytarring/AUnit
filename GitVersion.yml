@@ -1,7 +1,7 @@
 assembly-versioning-scheme: MajorMinorPatch
 assembly-file-versioning-scheme: MajorMinorPatch
 tag-prefix: '[vV]?'
-version-in-branch-pattern: (?<version>[vV]?\d+(\.\d+){0,2})
+version-in-branch-pattern: (?<version>[vV]?\d+(\.\d+){0,2})  # Capture Major.Minor.Patch versions
 major-version-bump-message: '\+semver:\s?(breaking|major)'
 minor-version-bump-message: '\+semver:\s?(feature|minor)'
 patch-version-bump-message: '\+semver:\s?(fix|patch|chore)'
@@ -9,7 +9,7 @@ no-bump-message: '\+semver:\s?(none|skip)'
 tag-pre-release-weight: 60000
 commit-date-format: dd-MM-yyyy
 merge-message-formats: {}
-update-build-number: true
+update-build-number: false
 semantic-version-format: Strict
 strategies:
 - Fallback
@@ -34,6 +34,7 @@ branches:
     is-release-branch: true
     is-main-branch: true
     pre-release-weight: 55000
+
   feature:
     mode: ContinuousDelivery
     label: '{BranchName}'
@@ -47,6 +48,7 @@ branches:
     is-source-branch-for: []
     is-main-branch: false
     pre-release-weight: 30000
+
   pull-request:
     mode: ContinuousDelivery
     label: PullRequest
@@ -62,8 +64,10 @@ branches:
     - feature
     is-source-branch-for: []
     pre-release-weight: 30000
+
 ignore:
   sha: []
+
 mode: ContinuousDelivery
 label: '{BranchName}'
 increment: Inherit
