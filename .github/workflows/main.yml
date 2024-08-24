@@ -25,13 +25,13 @@ jobs:
 
     - name: Use GitVersion to calculate version
       id: gitversion
-      run: dotnet-gitversion /output json /showvariable SemVer
+      run: dotnet-gitversion /output json /showvariable SemVer /updateprojectfiles
 
     - name: Restore dependencies
       run: dotnet restore
 
     - name: Build
-      run: dotnet build  -c Release /p:Version=$(gitversion.SemVer)
+      run: dotnet build -c Release
 
     - name: Publish NuGet Package
       uses: NuGet/setup-nuget@v1
