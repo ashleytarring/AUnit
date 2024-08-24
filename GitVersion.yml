@@ -1,13 +1,13 @@
 assembly-versioning-scheme: MajorMinorPatch
 assembly-file-versioning-scheme: MajorMinorPatch
 tag-prefix: '[vV]?'
-version-in-branch-pattern: (?<version>[vV]?\d+(\.\d+)?(\.\d+)?).*
+version-in-branch-pattern: (?<version>[vV]?\d+(\.\d+){0,2})
 major-version-bump-message: '\+semver:\s?(breaking|major)'
 minor-version-bump-message: '\+semver:\s?(feature|minor)'
 patch-version-bump-message: '\+semver:\s?(fix|patch|chore)'
 no-bump-message: '\+semver:\s?(none|skip)'
 tag-pre-release-weight: 60000
-commit-date-format: yyyy-MM-dd
+commit-date-format: dd-MM-yyyy
 merge-message-formats: {}
 update-build-number: true
 semantic-version-format: Strict
