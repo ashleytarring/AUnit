@@ -8,10 +8,12 @@
     <InformationalVersion>0.1.0+Branch.main.Sha.f98adbf6315f9c0c989edfaa4d318a5286d48cee</InformationalVersion>
     <Version>0.1.0</Version>
   </PropertyGroup>
+  
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.0" />
+    <PackageReference Include="Microsoft.TestPlatform.ObjectModel" Version="17.11.0" />
   </ItemGroup>
+
   <ItemGroup>
-    <ProjectReference Include="..\DUnit.Core\DUnit.Core.csproj" />
+    <ProjectReference Include="..\DUnit.Core\DUnit.Core.csproj" /> 
   </ItemGroup>
 </Project>

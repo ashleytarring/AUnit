@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\DUnit\DUnit.csproj" />
+    <ProjectReference Include="..\..\..\src\DUnit.Core\DUnit.Core.csproj" />
+    <ProjectReference Include="..\..\..\src\DUnit.TestAdapter\DUnit.TestAdapter.csproj" />
+  </ItemGroup>
+
+</Project>

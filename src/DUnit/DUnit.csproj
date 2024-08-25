@@ -18,13 +18,13 @@
   </PropertyGroup>
   <!-- Project references -->
   <ItemGroup>
-    <ProjectReference Include="..\DUnit.Adapter\DUnit.Adapter.csproj" PrivateAssets="all" />
+    <ProjectReference Include="..\DUnit.TestAdapter\DUnit.TestAdapter.csproj" PrivateAssets="all" />
     <ProjectReference Include="..\DUnit.Core\DUnit.Core.csproj" PrivateAssets="all" />
   </ItemGroup>
   <!-- Include the DLLs directly in the package -->
   <ItemGroup>
     <Content Include="..\DUnit.Core\bin\$(Configuration)\$(TargetFramework)\DUnit.Core.dll" Pack="true" PackagePath="lib\$(TargetFramework)\" />
-    <Content Include="..\DUnit.Adapter\bin\$(Configuration)\$(TargetFramework)\DUnit.Adapter.dll" Pack="true" PackagePath="lib\$(TargetFramework)\" />
+    <Content Include="..\DUnit.TestAdapter\bin\$(Configuration)\$(TargetFramework)\DUnit.TestAdapter.dll" Pack="true" PackagePath="lib\$(TargetFramework)\" />
   </ItemGroup>
   <!-- Include README -->
   <ItemGroup>
