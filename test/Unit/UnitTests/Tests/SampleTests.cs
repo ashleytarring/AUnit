@@ -1,4 +1,4 @@
-using DUnit.Core;
+using DUnit;
 
 namespace UnitTests.Tests;
 
@@ -8,20 +8,18 @@ public class SampleTests
   [Test]
   public void TestMethod1()
   {
-    // Simple assertion to check the test framework
-    if (1 != 1)
-    {
-      throw new Exception("TestMethod1 failed!");
-    }
+    Assert.Equal(expected: 1, actual: 1);
   }
 
   [Test]
   public void TestMethod2()
   {
-    // Another simple test case
-    if (2 + 2 != 4)
-    {
-      throw new Exception("TestMethod2 failed!");
-    }
+    Assert.Pass();
+  }
+
+  [Test]
+  public void FailingTestMethod1()
+  {
+    Assert.Equal(expected: 1, actual: 2);
   }
 }

@@ -3,7 +3,6 @@ using System.Reflection;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.Adapter;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging;
-using DUnit.Core;
 using DUnit.TestAdapter.Navigation;
 
 namespace DUnit.TestAdapter;

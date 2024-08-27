@@ -1,7 +1,6 @@
 ﻿using System.Reflection;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.Adapter;
-using DUnit.Core;
 
 namespace DUnit.TestAdapter;
 
@@ -79,6 +78,8 @@ public class TestExecutor : ITestExecutor
   {
     frameworkHandle.RecordStart(test);
 
+    TestOutcome outcome = TestOutcome.None; // Track the actual test outcome
+
     try
     {
       var assembly = Assembly.LoadFrom(test.Source);
@@ -90,19 +91,34 @@ public class TestExecutor : ITestExecutor
         var instance = Activator.CreateInstance(type!);
         method.Invoke(instance, null);
 
-        frameworkHandle.RecordResult(new TestResult(test)
-        {
-          Outcome = TestOutcome.Passed
-        });
+        // If no exception was thrown, we assume the test passed
+        outcome = TestOutcome.Passed;
       }
       else
       {
+        // Method not found, consider it as a failed test
         frameworkHandle.RecordResult(new TestResult(test)
         {
           Outcome = TestOutcome.Failed,
           ErrorMessage = "Test method not found."
         });
+        outcome = TestOutcome.Failed;
       }
+    }
+    catch (TargetInvocationException ex) when (ex.InnerException is TestPassedException)
+    {
+      frameworkHandle.RecordResult(new TestResult(test)
+      {
+        Outcome = TestOutcome.Passed,
+      });
+    }
+    catch (TargetInvocationException ex) when (ex.InnerException is TestFailedException)
+    {
+      frameworkHandle.RecordResult(new TestResult(test)
+      {
+        Outcome = TestOutcome.Failed,
+        ErrorMessage = ex.InnerException.Message,
+      });
     }
     catch (Exception ex)
     {
@@ -114,6 +130,7 @@ public class TestExecutor : ITestExecutor
       });
     }
 
-    frameworkHandle.RecordEnd(test, TestOutcome.Passed);
+    // Record the test end with the actual outcome
+    frameworkHandle.RecordEnd(test, outcome);
   }
 }
